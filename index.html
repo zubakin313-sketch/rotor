@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Двигатель Ванкеля — проект Team 2</title>
+  <meta name="description" content="Роторно-поршневой двигатель Ванкеля: как он устроен, почему ротор вращается, за что его любят и почему у него есть минусы. Проект и физический макет Team 2.">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Двигатель Ванкеля — проект Team 2">
+  <meta property="og:description" content="Три камеры, один ротор и ни одного возвратно-поступательного поршня. Устройство, история и наш физический макет.">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Team 2 — на главную">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="currentColor"/>
+          <path d="M32 11 L49.3 41 L14.7 41 Z" fill="#e4572e" stroke="#f4f1e9" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="32" cy="34" r="7" fill="#17191a" stroke="#f4f1e9" stroke-width="2"/>
+        </svg>
+        <span class="brand-text">
+          <strong>Team 2</strong>
+          <span>rotary project</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle-label">Меню</span>
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация" data-nav>
+        <a href="#about">О двигателе</a>
+        <a href="#how">Принцип</a>
+        <a href="#proscons">Плюсы и минусы</a>
+        <a href="#history">История</a>
+        <a href="#project">Проект</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow reveal"><span class="eyebrow-dot"></span>Team 2 · проект о роторном двигателе</p>
+          <h1 class="reveal">Двигатель <br><span class="accent">Ванкеля</span></h1>
+          <p class="lead hero-lead reveal">Ротор вместо поршня: три рабочие камеры, один вращающийся треугольник и полный цикл сгорания за каждый оборот.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#how">Как он работает <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#project">Наш проект</a>
+          </div>
+          <dl class="hero-stats reveal">
+            <div>
+              <dt>камеры</dt>
+              <dd>3</dd>
+            </div>
+            <div>
+              <dt>ротор</dt>
+              <dd>1</dd>
+            </div>
+            <div>
+              <dt>оборота вала на оборот ротора</dt>
+              <dd>3<small>:1</small></dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="hero-figure reveal" aria-labelledby="rotor-caption">
+          <div class="figure-top">
+            <span>FIG. 01 — СХЕМА</span>
+            <span>KKM · 3:1</span>
+          </div>
+          <div class="rotor-stage">
+            <svg class="rotor-svg" viewBox="0 0 600 600" role="img" aria-labelledby="rotor-title rotor-desc">
+              <title id="rotor-title">Схема двигателя Ванкеля</title>
+              <desc id="rotor-desc">Трёхгранный ротор вращается внутри двухлопастного корпуса. Показаны свеча зажигания, впуск и выпуск, а также эксцентриковый вал в центре.</desc>
+              <defs>
+                <linearGradient id="rotor-fill" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ef6a3c"/>
+                  <stop offset="1" stop-color="#b93b18"/>
+                </linearGradient>
+                <radialGradient id="stage-glow" cx="50%" cy="48%" r="55%">
+                  <stop offset="0" stop-color="#e4572e" stop-opacity=".13"/>
+                  <stop offset="1" stop-color="#e4572e" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <circle cx="300" cy="300" r="270" fill="url(#stage-glow)"/>
+              <g class="blueprint-lines" aria-hidden="true">
+                <line x1="300" y1="66" x2="300" y2="534"/>
+                <line x1="66" y1="300" x2="534" y2="300"/>
+                <circle cx="300" cy="300" r="238"/>
+              </g>
+
+              <path class="housing" d="M 548.00 300.00 L 547.24 316.94 L 544.99 333.69 L 541.27 350.10 L 536.15 366.00 L 529.71 381.22 L 522.06 395.64 L 513.30 409.12 L 503.59 421.55 L 493.06 432.87 L 481.87 443.00 L 470.18 451.91 L 458.15 459.58 L 445.95 466.02 L 433.72 471.26 L 421.62 475.36 L 409.77 478.40 L 398.30 480.45 L 387.29 481.64 L 376.84 482.07 L 367.00 481.87 L 357.81 481.17 L 349.27 480.10 L 341.40 478.80 L 334.15 477.39 L 327.48 475.97 L 321.33 474.67 L 315.60 473.56 L 310.21 472.71 L 305.05 472.18 L 300.00 472.00 L 294.95 472.18 L 289.79 472.71 L 284.40 473.56 L 278.67 474.67 L 272.52 475.97 L 265.85 477.39 L 258.60 478.80 L 250.73 480.10 L 242.19 481.17 L 233.00 481.87 L 223.16 482.07 L 212.71 481.64 L 201.70 480.45 L 190.23 478.40 L 178.38 475.36 L 166.28 471.26 L 154.05 466.02 L 141.85 459.58 L 129.82 451.91 L 118.13 443.00 L 106.94 432.87 L 96.41 421.55 L 86.70 409.12 L 77.94 395.64 L 70.29 381.22 L 63.85 366.00 L 58.73 350.10 L 55.01 333.69 L 52.76 316.94 L 52.00 300.00 L 52.76 283.06 L 55.01 266.31 L 58.73 249.90 L 63.85 234.00 L 70.29 218.78 L 77.94 204.36 L 86.70 190.88 L 96.41 178.45 L 106.94 167.13 L 118.13 157.00 L 129.82 148.09 L 141.85 140.42 L 154.05 133.98 L 166.28 128.74 L 178.38 124.64 L 190.23 121.60 L 201.70 119.55 L 212.71 118.36 L 223.16 117.93 L 233.00 118.13 L 242.19 118.83 L 250.73 119.90 L 258.60 121.20 L 265.85 122.61 L 272.52 124.03 L 278.67 125.33 L 284.40 126.44 L 289.79 127.29 L 294.95 127.82 L 300.00 128.00 L 305.05 127.82 L 310.21 127.29 L 315.60 126.44 L 321.33 125.33 L 327.48 124.03 L 334.15 122.61 L 341.40 121.20 L 349.27 119.90 L 357.81 118.83 L 367.00 118.13 L 376.84 117.93 L 387.29 118.36 L 398.30 119.55 L 409.77 121.60 L 421.62 124.64 L 433.72 128.74 L 445.95 133.98 L 458.15 140.42 L 470.18 148.09 L 481.87 157.00 L 493.06 167.13 L 503.59 178.45 L 513.30 190.88 L 522.06 204.36 L 529.71 218.78 L 536.15 234.00 L 541.27 249.90 L 544.99 266.31 L 547.24 283.06 Z"/>
+
+              <g class="rotor-orbit" data-rotor-orbit>
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 300 300" to="1080 300 300" dur="12s" repeatCount="indefinite"/>
+                <g transform="translate(300 300)">
+                  <g transform="translate(38 0)">
+                    <g class="rotor-spin" data-rotor-spin>
+                      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="-720 0 0" dur="12s" repeatCount="indefinite"/>
+                      <path class="rotor-body" d="M 203.30 0.00 Q 65.06 112.68 -101.65 176.06 Q -130.11 0.00 -101.65 -176.06 Q 65.06 -112.68 203.30 0.00 Z"/>
+                      <path class="rotor-cut" d="M 105.72 0.00 Q 33.83 58.59 -52.86 91.55 Q -67.66 0.00 -52.86 -91.55 Q 33.83 -58.59 105.72 0.00 Z"/>
+                      <g class="apex-seals">
+                        <circle cx="203.30" cy="0.00" r="6.5"/>
+                        <circle cx="-101.65" cy="176.06" r="6.5"/>
+                        <circle cx="-101.65" cy="-176.06" r="6.5"/>
+                      </g>
+                      <circle class="rotor-hub" cx="0" cy="0" r="42"/>
+                      <circle class="rotor-shaft" cx="0" cy="0" r="15"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+
+              <g class="spark-plug" aria-hidden="true">
+                <text x="300" y="54">СВЕЧА</text>
+                <line x1="300" y1="66" x2="300" y2="103"/>
+                <rect x="288" y="101" width="24" height="18" rx="3"/>
+                <line x1="300" y1="119" x2="300" y2="130"/>
+                <circle cx="300" cy="132" r="4"/>
+              </g>
+
+              <g class="port-label" aria-hidden="true">
+                <text x="546" y="214" text-anchor="end">ВПУСК</text>
+                <line x1="536" y1="226" x2="514" y2="244"/>
+                <text x="54" y="408">ВЫПУСК</text>
+                <line x1="102" y1="397" x2="124" y2="378"/>
+              </g>
+            </svg>
+          </div>
+          <figcaption class="figure-bottom" id="rotor-caption">
+            <span>Роторно-поршневой двигатель</span>
+            <button class="motion-toggle" type="button" aria-label="Приостановить анимацию ротора" data-motion-toggle>
+              <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/></svg>
+              <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+              <span data-motion-label>Пауза</span>
+            </button>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>01 · Коротко</p>
+          <h2>Что это такое?</h2>
+        </div>
+        <div class="about-grid">
+          <div class="prose reveal">
+            <p class="lead">Двигатель Ванкеля — роторно-поршневой двигатель внутреннего сгорания. В нём нет привычных поршней, которые ходят вверх и вниз: внутри корпуса вращается трёхгранный ротор.</p>
+            <p>Форма корпуса рассчитана так, чтобы между его стенками и гранями ротора всё время оставались три отдельные рабочие камеры. Пока ротор поворачивается, каждая камера проходит полный четырёхтактный цикл: впуск, сжатие, рабочий ход и выпуск.</p>
+            <p>Впуск и выпуск происходят через окна в корпусе, поэтому клапаны не нужны. Вращение ротора передаётся на эксцентриковый вал — он и снимает мощность.</p>
+          </div>
+          <div class="fact-card reveal" aria-label="Ключевые факты">
+            <p class="fact-kicker">Ключевой факт</p>
+            <p class="fact-number">3<small>×</small></p>
+            <p class="fact-text">эксцентриковый вал вращается в три раза быстрее ротора</p>
+            <dl class="spec-list">
+              <div><dt>Автор</dt><dd>Феликс Ванкель</dd></div>
+              <div><dt>Первый прототип</dt><dd>1957</dd></div>
+              <div><dt>Рабочий цикл</dt><dd>4 такта</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>02 · Принцип работы</p>
+          <h2>Четыре такта. <br>Три камеры.</h2>
+          <p class="section-intro">Ротор не ходит вверх-вниз — он вращается. Каждая из трёх граней создаёт собственную камеру, и в каждой камере последовательно происходят все четыре такта.</p>
+        </div>
+
+        <ol class="cycle-steps">
+          <li class="cycle-step reveal">
+            <span class="cycle-num">01</span>
+            <h3>Впуск</h3>
+            <p>Грань открывает впускное окно, и топливно-воздушная смесь заполняет камеру.</p>
+          </li>
+          <li class="cycle-step reveal">
+            <span class="cycle-num">02</span>
+            <h3>Сжатие</h3>
+            <p>Объём камеры уменьшается, смесь сжимается и готовится к воспламенению.</p>
+          </li>
+          <li class="cycle-step reveal">
+            <span class="cycle-num">03</span>
+            <h3>Рабочий ход</h3>
+            <p>Свеча поджигает смесь. Давление толкает ротор, и энергия передаётся на вал.</p>
+          </li>
+          <li class="cycle-step reveal">
+            <span class="cycle-num">04</span>
+            <h3>Выпуск</h3>
+            <p>Отработавшие газы выходят через выпускное окно, а камера готовится к новому циклу.</p>
+          </li>
+        </ol>
+
+        <div class="ratio-card reveal">
+          <p class="ratio-number">3:1</p>
+          <div>
+            <h3>Почему вал быстрее ротора?</h3>
+            <p>За один оборот ротора эксцентриковый вал делает три оборота. Поэтому мощность снимается плавно: на каждый оборот вала приходится один рабочий ход. Клапанов тоже нет — газораспределение задают окна в корпусе.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proscons">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>03 · Баланс</p>
+          <h2>Сильные и слабые стороны</h2>
+        </div>
+
+        <div class="compare">
+          <article class="compare-card compare-plus reveal">
+            <div class="compare-head">
+              <span class="compare-icon" aria-hidden="true">+</span>
+              <h3>Плюсы</h3>
+            </div>
+            <ul>
+              <li><strong>Компактность.</strong> При той же мощности двигатель занимает меньше места и весит меньше.</li>
+              <li><strong>Плавность.</strong> Нет возвратно-поступательных масс — меньше вибраций и шума.</li>
+              <li><strong>Мало деталей.</strong> Нет клапанов, шатунов и привычного коленвала.</li>
+              <li><strong>Удельная мощность.</strong> Много мощности на единицу объёма и массы.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card compare-minus reveal">
+            <div class="compare-head">
+              <span class="compare-icon" aria-hidden="true">−</span>
+              <h3>Минусы</h3>
+            </div>
+            <ul>
+              <li><strong>Расход и выбросы.</strong> Эффективность сгорания ниже, а требования к очистке выхлопа выше.</li>
+              <li><strong>Уплотнения.</strong> Уплотнения вершин ротора изнашиваются, их сложно обслуживать.</li>
+              <li><strong>Тепловой режим.</strong> Из-за формы камеры тепло отводить сложнее.</li>
+              <li><strong>Момент.</strong> На низких оборотах тяга слабее — двигатель любит высокие обороты.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="compare-note reveal">Поэтому роторные двигатели заняли нишу: спорт, авиация, беспилотники и гибридные генераторы, а не массовые автомобили.</p>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="history">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>04 · Контекст</p>
+          <h2>Короткая история</h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="reveal">
+            <span class="timeline-year">1957</span>
+            <h3>Первый DKM</h3>
+            <p>Феликс Ванкель и NSU доводят идею до работающего роторного прототипа.</p>
+          </li>
+          <li class="reveal">
+            <span class="timeline-year">1964</span>
+            <h3>NSU Wankel Spider</h3>
+            <p>Первый серийный автомобиль с роторным двигателем.</p>
+          </li>
+          <li class="reveal">
+            <span class="timeline-year">1967</span>
+            <h3>Ro 80 и Cosmo Sport</h3>
+            <p>Ротор выходит на дороги: комфортный седан NSU и спорткар Mazda.</p>
+          </li>
+          <li class="reveal">
+            <span class="timeline-year">1991</span>
+            <h3>Mazda 787B</h3>
+            <p>Четырёхроторный двигатель приносит Mazda победу в «24 часах Ле-Мана».</p>
+          </li>
+          <li class="reveal">
+            <span class="timeline-year">2012</span>
+            <h3>Финал RX-8</h3>
+            <p>Завершается выпуск самого массового роторного спорткара Mazda.</p>
+          </li>
+          <li class="reveal">
+            <span class="timeline-year">2023</span>
+            <h3>MX-30 R-EV</h3>
+            <p>Ротор возвращается — теперь как компактный генератор для гибрида.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="project">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>05 · Наш проект</p>
+          <h2>Макет, который вращается</h2>
+        </div>
+
+        <div class="project-grid">
+          <div class="project-copy reveal">
+            <p class="lead">Мы собрали физический макет роторного двигателя, чтобы показать его устройство не только на схеме: корпус, ротор, эксцентриковый вал и последовательность тактов.</p>
+            <p>К проекту прилагается презентация. Короткий фильм о сборке, принципе работы и движении макета появится здесь после съёмки.</p>
+            <ul class="project-list">
+              <li><span>01</span>Собрали действующий макет</li>
+              <li><span>02</span>Разобрали четырёхтактный цикл</li>
+              <li><span>03</span>Готовим видео о проекте</li>
+            </ul>
+          </div>
+
+          <div class="team-card reveal">
+            <p class="team-kicker">Команда</p>
+            <p class="team-name">Team 2</p>
+            <p class="team-desc">Физический макет · презентация · видео</p>
+            <dl>
+              <div><dt>Тема</dt><dd>Двигатель Ванкеля</dd></div>
+              <div><dt>Формат</dt><dd>Макет + защита</dd></div>
+              <div><dt>Год</dt><dd>2026</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <figure class="film reveal">
+          <div class="film-bar">
+            <span>TEAM 2 / FILM 01</span>
+            <span class="film-status"><span class="status-dot" aria-hidden="true"></span>видео скоро</span>
+          </div>
+          <div class="video-placeholder">
+            <div class="video-scan" aria-hidden="true"></div>
+            <div class="video-center">
+              <span class="play-ring" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+              </span>
+              <p class="video-title">Видео появится после съёмок</p>
+              <p class="video-sub">Короткий фильм о макете, сборке и принципе работы</p>
+            </div>
+            <span class="video-mark video-mark-tl" aria-hidden="true"></span>
+            <span class="video-mark video-mark-tr" aria-hidden="true"></span>
+            <span class="video-mark video-mark-bl" aria-hidden="true"></span>
+            <span class="video-mark video-mark-br" aria-hidden="true"></span>
+          </div>
+          <figcaption>Съёмка и монтаж — Team 2. Фильм будет добавлен на эту страницу.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <svg class="brand-mark brand-mark-footer" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="currentColor"/>
+          <path d="M32 11 L49.3 41 L14.7 41 Z" fill="#e4572e" stroke="#f4f1e9" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="32" cy="34" r="7" fill="#17191a" stroke="#f4f1e9" stroke-width="2"/>
+        </svg>
+        <div>
+          <p class="footer-name">Team 2</p>
+          <p class="footer-sub">Двигатель Ванкеля · макет и презентация</p>
+        </div>
+      </div>
+      <p class="footer-note">Сделано для учебного проекта. 2026.</p>
+      <a class="footer-top" href="#top">Наверх <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
